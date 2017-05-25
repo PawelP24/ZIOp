@@ -1,0 +1,19 @@
+﻿<Window x:Class="System_biblioteczny.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:System_biblioteczny"
+        mc:Ignorable="d"
+        Title="System biblioteczny" Height="149.2" Width="621" ResizeMode="NoResize">
+    <Grid>
+        <Canvas x:Name="Buttons" HorizontalAlignment="Left" Height="101" Margin="10,10,0,0" VerticalAlignment="Top" Width="598">
+            <Button x:Name="B_Pracownicy" Content="Spis pracowników" Canvas.Left="10" Canvas.Top="10" Width="111" Height="81" Click="B_Pracownicy_Click"/>
+            <Button x:Name="B_Wydawcy" Content="Rejestr wydawców" Canvas.Left="126" Canvas.Top="10" Width="111" Height="81"/>
+            <Button x:Name="B_Ksiazki" Content="Spis książek" Canvas.Left="242" Canvas.Top="10" Width="112" Height="81"/>
+            <Button x:Name="B_Wypozyczenia" Content="Rejestr wypożyczeń" Canvas.Left="359" Canvas.Top="10" Width="112" Height="81"/>
+            <Button x:Name="B_Czytelnicy" Content="Spis czytelników" Canvas.Left="476" Canvas.Top="10" Width="112" Height="81"/>
+        </Canvas>
+
+    </Grid>
+</Window>
