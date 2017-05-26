@@ -10,26 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace System_biblioteczny
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Add_Pracownik.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Add_Pracownik : Window
     {
         Spis_pracownikow pracownicy;
-        public MainWindow()
+        DBHandler handler;
+        public Add_Pracownik(Spis_pracownikow pracownik)
         {
             InitializeComponent();
+            pracownicy = pracownik;
         }
 
-        private void B_Pracownicy_Click(object sender, RoutedEventArgs e)
+        private void b_Zapisz_Click(object sender, RoutedEventArgs e)
         {
-            pracownicy = new Spis_pracownikow();
-            pracownicy.ShowDialog();
+            handler = new DBHandler();
+            Pracownik pracownik = new Pracownik(tbImie.Text, tbNazwisko.Text, tbPESEL.Text, tbTelefon.Text);
+            handler.Add_Pracownik(pracownik);
+            pracownicy.DataGrid_Fill();
         }
     }
 }
