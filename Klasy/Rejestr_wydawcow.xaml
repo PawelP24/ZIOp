@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:System_biblioteczny"
         mc:Ignorable="d"
-        Title="Rejestr wydawców" Height="240" Width="255.2" ResizeMode="NoResize">
-    <Grid Margin="0,0,-0.2,0.4">
-        <Canvas x:Name="DG_Wydawcy_Canvas" HorizontalAlignment="Left" Height="171" Margin="10,10,0,0" VerticalAlignment="Top" Width="228.8">
-            <DataGrid Height="171">
+        Title="Rejestr wydawców" Height="253.333" Width="340" ResizeMode="NoResize">
+    <Grid Margin="0,0,-6.2,0.4">
+        <Canvas x:Name="DG_Wydawcy_Canvas" HorizontalAlignment="Left" Height="171" Margin="10,10,0,0" VerticalAlignment="Top" Width="320">
+            <DataGrid x:Name="DG_Wydawcy" Height="171" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id"/>
-                    <DataGridTextColumn Header="Nazwa wydawnictwa"/>
-                    <DataGridTextColumn Header="Adres siedziby"/>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="ID"/>
+                    <DataGridTextColumn Binding="{Binding Nazwa}" Header="Nazwa wydawnictwa"/>
+                    <DataGridTextColumn Binding="{Binding Adres}" Header="Adres siedziby"/>
+                    <DataGridTextColumn Binding="{Binding ilosc_ksiazek}" Header="Ilość książek"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Canvas>
-        <Canvas HorizontalAlignment="Left" Height="19" Margin="10,186,0,0" VerticalAlignment="Top" Width="229">
-            <Button x:Name="B_dodaj" Content="Dodaj wydawnictwo" Width="84" FontSize="9"/>
-            <Button x:Name="B_Usun" Content="Usuń wydawnictwo" Canvas.Left="89" Width="83" FontSize="9"/>
+        <Canvas HorizontalAlignment="Left" Height="25" Margin="10,186,0,0" VerticalAlignment="Top" Width="229">
+            <Button x:Name="B_Usun" Content="Usuń wydawnictwo" Width="83" FontSize="9" Click="B_Usun_Click"/>
         </Canvas>
 
     </Grid>

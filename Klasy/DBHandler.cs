@@ -57,5 +57,60 @@ namespace System_biblioteczny
             command.Connection.Close();
         }
         
+        public DataTable FillGrid_Wydawcy()
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM WYDAWNICTWA";
+            DataTable table = new DataTable("Wydawnictwa");
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            command.Connection.Close();
+            return table;
+        }
+
+        public void Delete_Wydawnictwo(int index)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@Id", index);
+            command.CommandText = "DELETE FROM WYDAWNICTWA WHERE Id = @Id";
+            command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+        public void Add_Ksiazka(Ksiazka ksiazka,Wydawnictwo wydawnictwo)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "Ksiazka_Add";
+            command.Parameters.Add("@Tytul", SqlDbType.VarChar).Value = ksiazka.Tytul;
+            command.Parameters.Add("@Autor", SqlDbType.VarChar).Value = ksiazka.Autor;
+            command.Parameters.Add("@Kod", SqlDbType.VarChar).Value = ksiazka.Kod;
+            command.Parameters.Add("@Data_wydania", SqlDbType.VarChar).Value = ksiazka.Data_wydania;
+            command.Parameters.Add("@Cena", SqlDbType.Int).Value = ksiazka.Cena;
+            command.Parameters.Add("@Ilosc", SqlDbType.Int).Value = ksiazka.Ilosc;
+            command.Parameters.Add("@dostepnosc", SqlDbType.VarChar).Value = ksiazka.Dostepnosc;
+            command.Parameters.Add("@Nazwa", SqlDbType.VarChar).Value = wydawnictwo.nazwa;
+            command.Parameters.Add("@Adres", SqlDbType.VarChar).Value = wydawnictwo.adres;
+            command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+        public DataTable FillGrid_Ksiazki()
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM ViewKsiazki";
+            DataTable table = new DataTable("Ksiazki");
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            command.Connection.Close();
+            return table;
+        }
+
+        
     }
 }

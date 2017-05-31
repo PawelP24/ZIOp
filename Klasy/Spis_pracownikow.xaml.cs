@@ -44,7 +44,8 @@ namespace System_biblioteczny
         private void B_Usun_Click(object sender, RoutedEventArgs e)
         {
             DBHandler handler = new DBHandler();
-            handler.Delete_Pracownik(DG_Pracownicy.SelectedIndex);
+            DataRowView row = (DataRowView)DG_Pracownicy.SelectedItem;
+            handler.Delete_Pracownik(Convert.ToInt32(row.Row[0]));
             DataGrid_Fill();
         }
 

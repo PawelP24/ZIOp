@@ -21,6 +21,8 @@ namespace System_biblioteczny
     public partial class MainWindow : Window
     {
         Spis_pracownikow pracownicy;
+        Spis_ksiazek ksiazki;
+        Rejestr_wydawcow wydawcy;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +32,18 @@ namespace System_biblioteczny
         {
             pracownicy = new Spis_pracownikow();
             pracownicy.ShowDialog();
+        }
+
+        private void B_Ksiazki_Click(object sender, RoutedEventArgs e)
+        {
+            ksiazki = new Spis_ksiazek();
+            ksiazki.ShowDialog();
+        }
+
+        private void B_Wydawcy_Click(object sender, RoutedEventArgs e)
+        {
+            wydawcy = new Rejestr_wydawcow();
+            wydawcy.ShowDialog();
         }
     }
 }

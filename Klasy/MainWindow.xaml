@@ -9,8 +9,8 @@
     <Grid>
         <Canvas x:Name="Buttons" HorizontalAlignment="Left" Height="101" Margin="10,10,0,0" VerticalAlignment="Top" Width="598">
             <Button x:Name="B_Pracownicy" Content="Spis pracowników" Canvas.Left="10" Canvas.Top="10" Width="111" Height="81" Click="B_Pracownicy_Click"/>
-            <Button x:Name="B_Wydawcy" Content="Rejestr wydawców" Canvas.Left="126" Canvas.Top="10" Width="111" Height="81"/>
-            <Button x:Name="B_Ksiazki" Content="Spis książek" Canvas.Left="242" Canvas.Top="10" Width="112" Height="81"/>
+            <Button x:Name="B_Wydawcy" Content="Rejestr wydawców" Canvas.Left="126" Canvas.Top="10" Width="111" Height="81" Click="B_Wydawcy_Click"/>
+            <Button x:Name="B_Ksiazki" Content="Spis książek" Canvas.Left="242" Canvas.Top="10" Width="112" Height="81" Click="B_Ksiazki_Click"/>
             <Button x:Name="B_Wypozyczenia" Content="Rejestr wypożyczeń" Canvas.Left="359" Canvas.Top="10" Width="112" Height="81"/>
             <Button x:Name="B_Czytelnicy" Content="Spis czytelników" Canvas.Left="476" Canvas.Top="10" Width="112" Height="81"/>
         </Canvas>
