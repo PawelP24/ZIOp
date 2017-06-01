@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:System_biblioteczny"
         mc:Ignorable="d"
-        Title="Rejestr wydawców" Height="253.333" Width="340" ResizeMode="NoResize">
-    <Grid Margin="0,0,-6.2,0.4">
-        <Canvas x:Name="DG_Wydawcy_Canvas" HorizontalAlignment="Left" Height="171" Margin="10,10,0,0" VerticalAlignment="Top" Width="320">
-            <DataGrid x:Name="DG_Wydawcy" Height="171" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+        Title="Rejestr wydawców" Height="253.333" Width="337.334" ResizeMode="NoResize">
+    <Grid Margin="0,0,9.8,0">
+        <Canvas x:Name="DG_Wydawcy_Canvas" Height="171" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="309">
+            <DataGrid x:Name="DG_Wydawcy" Height="171" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Id}" Header="ID"/>
                     <DataGridTextColumn Binding="{Binding Nazwa}" Header="Nazwa wydawnictwa"/>
@@ -18,7 +18,8 @@
             </DataGrid>
         </Canvas>
         <Canvas HorizontalAlignment="Left" Height="25" Margin="10,186,0,0" VerticalAlignment="Top" Width="229">
-            <Button x:Name="B_Usun" Content="Usuń wydawnictwo" Width="83" FontSize="9" Click="B_Usun_Click"/>
+            <Button x:Name="B_Usun" Content="Usuń" Width="90" Click="B_Usun_Click" Canvas.Left="93" Height="20" Canvas.Top="1"/>
+            <Button x:Name="B_Dodaj" Content="Dodaj" Canvas.Top="1" Width="75"/>
         </Canvas>
 
     </Grid>

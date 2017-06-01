@@ -19,14 +19,24 @@ namespace System_biblioteczny
     /// </summary>
     public partial class Add_Czytelnik : Window
     {
-        public Add_Czytelnik()
+        Spis_czytelnikow parentWindow;
+        public Add_Czytelnik(Spis_czytelnikow spis)
         {
             InitializeComponent();
+            parentWindow = spis;
         }
 
         private void B_Dodaj_Click(object sender, RoutedEventArgs e)
         {
-
+            Czytelnik czytelnik = new Czytelnik();
+            czytelnik.Imie = tbImie.Text;
+            czytelnik.Nazwisko = tbNazwisko.Text;
+            czytelnik.Nr_telefonu = tbTelefon.Text;
+            czytelnik.Adres = tbAdres.Text;
+            czytelnik.PESEL = tbPESEL.Text;
+            DBHandler handler = new DBHandler();
+            handler.Add_Czytelnik(czytelnik);
+            parentWindow.Fill_Grid();
         }
     }
 }

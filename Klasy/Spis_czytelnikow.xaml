@@ -1,0 +1,26 @@
+﻿<Window x:Class="System_biblioteczny.Spis_czytelnikow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:System_biblioteczny"
+        mc:Ignorable="d"
+        Title="Spis czytelników" Height="214.4" Width="322.4" ResizeMode="NoResize">
+    <Grid>
+        <Canvas x:Name="Canvas_czytelnicy" HorizontalAlignment="Left" Height="167" Margin="10,10,0,0" VerticalAlignment="Top" Width="296">
+            <DataGrid x:Name="DG_Czytelnicy" Canvas.Left="10" Canvas.Top="10" Height="100" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" Width="276">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="ID"/>
+                    <DataGridTextColumn Binding="{Binding Imie}" Header="Imię"/>
+                    <DataGridTextColumn Binding="{Binding Nazwisko}" Header="Nazwisko"/>
+                    <DataGridTextColumn Binding="{Binding Nr_telefonu}" Header="Nr telefonu"/>
+                    <DataGridTextColumn Binding="{Binding Adres}" Header="Adres"/>
+                    <DataGridTextColumn Binding="{Binding PESEL}" Header="PESEL"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="B_Dodaj" Content="Dodaj" Canvas.Top="136" Width="75" Canvas.Left="10" Click="B_Dodaj_Click"/>
+            <Button x:Name="B_Delete" Content="Usuń" Canvas.Left="91" Canvas.Top="136" Width="75" Click="B_Delete_Click"/>
+        </Canvas>
+
+    </Grid>
+</Window>

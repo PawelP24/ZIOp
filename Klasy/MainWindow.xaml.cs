@@ -23,6 +23,8 @@ namespace System_biblioteczny
         Spis_pracownikow pracownicy;
         Spis_ksiazek ksiazki;
         Rejestr_wydawcow wydawcy;
+        Spis_czytelnikow czytelnicy;
+        Rejestr_wypozyczen wypozyczenia;
         public MainWindow()
         {
             InitializeComponent();
@@ -44,6 +46,18 @@ namespace System_biblioteczny
         {
             wydawcy = new Rejestr_wydawcow();
             wydawcy.ShowDialog();
+        }
+
+        private void B_Czytelnicy_Click(object sender, RoutedEventArgs e)
+        {
+            czytelnicy = new Spis_czytelnikow();
+            czytelnicy.ShowDialog();
+        }
+
+        private void B_Wypozyczenia_Click(object sender, RoutedEventArgs e)
+        {
+            wypozyczenia = new Rejestr_wypozyczen();
+            wypozyczenia.ShowDialog();
         }
     }
 }
