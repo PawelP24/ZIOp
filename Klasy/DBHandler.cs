@@ -30,7 +30,7 @@ namespace System_biblioteczny
             command.Parameters.Add("@Nr_telefonu", SqlDbType.VarChar).Value = pracownik.Nr_telefonu;
             command.ExecuteNonQuery();
             command.Connection.Close();
-            
+
         }
 
         public DataTable FillGrid_Pracownicy()
@@ -56,7 +56,7 @@ namespace System_biblioteczny
             command.ExecuteNonQuery();
             command.Connection.Close();
         }
-        
+
         public DataTable FillGrid_Wydawcy()
         {
             SqlCommand command = connection.CreateCommand();
@@ -80,7 +80,7 @@ namespace System_biblioteczny
             command.ExecuteNonQuery();
             command.Connection.Close();
         }
-        public void Add_Ksiazka(Ksiazka ksiazka,Wydawnictwo wydawnictwo)
+        public void Add_Ksiazka(Ksiazka ksiazka, Wydawnictwo wydawnictwo)
         {
             SqlCommand command = connection.CreateCommand();
             command.Connection.Open();
@@ -92,9 +92,7 @@ namespace System_biblioteczny
             command.Parameters.Add("@Data_wydania", SqlDbType.VarChar).Value = ksiazka.Data_wydania;
             command.Parameters.Add("@Cena", SqlDbType.Int).Value = ksiazka.Cena;
             command.Parameters.Add("@Ilosc", SqlDbType.Int).Value = ksiazka.Ilosc;
-            command.Parameters.Add("@dostepnosc", SqlDbType.VarChar).Value = ksiazka.Dostepnosc;
             command.Parameters.Add("@Nazwa", SqlDbType.VarChar).Value = wydawnictwo.nazwa;
-            command.Parameters.Add("@Adres", SqlDbType.VarChar).Value = wydawnictwo.adres;
             command.ExecuteNonQuery();
             command.Connection.Close();
         }
@@ -158,7 +156,7 @@ namespace System_biblioteczny
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(pracownik);
             command.Connection.Close();
-            foreach(DataRow item in pracownik.Rows)
+            foreach (DataRow item in pracownik.Rows)
             {
                 Pracownik.Add(item["PESEL"].ToString());
             }
@@ -198,6 +196,81 @@ namespace System_biblioteczny
                 ISBN.Add(item["Kod"].ToString());
             }
             return ISBN;
+        }
+        public void Add_Wydawca(Wydawnictwo wydawca)
+        {
+
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "Wydawnictwo_Add";
+            command.Parameters.Add("@Nazwa", SqlDbType.VarChar).Value = wydawca.nazwa;
+            command.Parameters.Add("@Adres", SqlDbType.VarChar).Value = wydawca.adres;
+            command.ExecuteNonQuery();
+            command.Connection.Close();
+
+        }
+        public List<string> cb_Wydawcy()
+        {
+            List<string> Wydawcy = new List<string>();
+            DataTable wydawcy = new DataTable("Nazwa");
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT Nazwa FROM Wydawnictwa";
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(wydawcy);
+            command.Connection.Close();
+            foreach (DataRow item in wydawcy.Rows)
+            {
+                 Wydawcy.Add(item["Nazwa"].ToString());
+            }
+            return Wydawcy;
+        }
+        public void Delete_Ksiazka(int index)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@Id", index);
+            command.CommandText = "DELETE FROM Ksiazki WHERE Id = @Id";
+            command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+        public void Delete_Wypozyczenie(int index)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@Id", index);
+            command.CommandText = "DELETE FROM Wypozyczenie WHERE Id = @Id";
+            command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+        public void Add_Wypozyczenie(Wypozyczenie wypozyczenie)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "Wypozyczenie_Add";
+            command.Parameters.Add("@Kod", SqlDbType.VarChar).Value = wypozyczenie.ISBN;
+            command.Parameters.Add("@PESELCzytelnika", SqlDbType.VarChar).Value = wypozyczenie.PESELCzytelnik;
+            command.Parameters.Add("@PESELPracownika", SqlDbType.VarChar).Value = wypozyczenie.PESELPracownik;
+            command.Parameters.Add("@OkresWypozyczenia", SqlDbType.VarChar).Value = wypozyczenie.Okres_wypozyczenie;
+            command.ExecuteNonQuery();
+            command.Connection.Close();
+        }
+        public DataTable FillGrid_Wypozyczenie()
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM ViewWypozyczenia";
+            DataTable table = new DataTable("Wypozyczenia");
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(table);
+            command.Connection.Close();
+            return table;
         }
     }
 }

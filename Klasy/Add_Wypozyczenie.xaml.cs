@@ -65,5 +65,16 @@ namespace System_biblioteczny
             cb_ISBN.ItemsSource = ISBN;
         }
 
+        private void B_Dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            DBHandler handler = new DBHandler();
+            Wypozyczenie wypozyczenie = new Wypozyczenie();
+            wypozyczenie.ISBN = cb_ISBN.SelectedValue.ToString();
+            wypozyczenie.Okres_wypozyczenie = Convert.ToInt32(cb_dni.SelectedValue);
+            wypozyczenie.PESELCzytelnik = cb_czytelnik.SelectedValue.ToString();
+            wypozyczenie.PESELPracownik = cb_pracownik.SelectedValue.ToString();
+            handler.Add_Wypozyczenie(wypozyczenie);
+            parentWindow.Fill_Grid();
+        }
     }
 }

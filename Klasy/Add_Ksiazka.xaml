@@ -22,10 +22,8 @@
             <Label Content="Ilość sztuk" Canvas.Left="151" Canvas.Top="129" Padding="0"/>
             <TextBox x:Name="tbIlosc" Height="23" Canvas.Left="151" TextWrapping="Wrap" Canvas.Top="147" Width="94"/>
             <Label Content="Nazwa wydawnictwa" Canvas.Left="10" Canvas.Top="182" Padding="0"/>
-            <TextBox x:Name="tbNazwa" Height="23" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="203" Width="108"/>
-            <Label Content="Adres siedziby" Canvas.Left="151" Canvas.Top="182" Padding="0"/>
-            <TextBox x:Name="tbAdres" Height="23" Canvas.Left="151" TextWrapping="Wrap" Canvas.Top="203" Width="94"/>
             <Button Content="Dodaj" Canvas.Left="10" Canvas.Top="244" Width="75" Click="Button_Click"/>
+            <ComboBox x:Name="cb_Nazwa" Canvas.Left="10" Canvas.Top="204" Width="108"/>
         </Canvas>
 
     </Grid>

@@ -19,7 +19,7 @@
                 </DataGrid.Columns>
             </DataGrid>
             <Button x:Name="B_Dodaj" Content="Dodaj" Canvas.Top="136" Width="75" Canvas.Left="10" Click="B_Dodaj_Click"/>
-            <Button x:Name="B_Delete" Content="Usuń" Canvas.Left="91" Canvas.Top="136" Width="75" Click="B_Delete_Click"/>
+            <Button x:Name="B_Delete" Content="Usuń" Canvas.Left="98" Canvas.Top="136" Width="76" Click="B_Delete_Click"/>
         </Canvas>
 
     </Grid>

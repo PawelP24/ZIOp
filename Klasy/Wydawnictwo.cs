@@ -12,10 +12,9 @@ namespace System_biblioteczny
         public string adres { get; set; }
         public int ilosc_ksiazek { get; set; }
 
-        public Wydawnictwo(string nazwa, string adres)
+        public Wydawnictwo()
         {
-            this.nazwa = nazwa;
-            this.adres = adres;
+           
             
         }
     }

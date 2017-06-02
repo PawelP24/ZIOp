@@ -38,5 +38,13 @@ namespace System_biblioteczny
             table = handler.FillGrid_Ksiazki();
             DG_Ksiazki.ItemsSource = table.DefaultView;
         }
+
+        private void B_Usun_Click(object sender, RoutedEventArgs e)
+        {
+            DBHandler handler = new DBHandler();
+            DataRowView row = (DataRowView)DG_Ksiazki.SelectedItem;
+            handler.Delete_Pracownik(Convert.ToInt32(row.Row[0]));
+            FillGrid();
+        }
     }
 }

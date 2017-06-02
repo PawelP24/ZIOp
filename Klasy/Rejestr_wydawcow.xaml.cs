@@ -42,5 +42,11 @@ namespace System_biblioteczny
             handler.Delete_Wydawnictwo(DG_Wydawcy.SelectedIndex);
             FillGrid_Wydawcy();
         }
+
+        private void B_Dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            Add_Wydawca wydawca = new Add_Wydawca(this);
+            wydawca.ShowDialog();
+        }
     }
 }

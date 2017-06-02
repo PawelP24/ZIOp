@@ -16,7 +16,7 @@
             <ComboBox x:Name="cb_pracownik" Canvas.Left="10" Canvas.Top="93" Width="85"/>
             <Label Content="Okres wypożyczenia" Canvas.Left="138" Canvas.Top="72" Padding="0"/>
             <ComboBox x:Name="cb_dni" Canvas.Left="138" Canvas.Top="93" Width="49"/>
-            <Button x:Name="B_Dodaj" Content="Dodaj" Canvas.Left="10" Canvas.Top="145" Width="85"/>
+            <Button x:Name="B_Dodaj" Content="Dodaj" Canvas.Left="10" Canvas.Top="145" Width="85" Click="B_Dodaj_Click"/>
             <Label Content="dni" Canvas.Left="191" Canvas.Top="99" Padding="0"/>
         </Canvas>
 

@@ -8,9 +8,19 @@
         Title="Rejestr wypożyczeń" Height="211.035" Width="300" ResizeMode="NoResize">
     <Grid>
         <Canvas x:Name="Canvas_Wypozyczenia" HorizontalAlignment="Left" Height="161" Margin="10,10,0,0" VerticalAlignment="Top" Width="274">
-            <DataGrid x:Name="DG_Wypozyczenia" Height="99" Canvas.Left="10" Canvas.Top="10" Width="254"/>
+            <DataGrid x:Name="DG_Wypozyczenia" Height="99" Canvas.Left="10" Canvas.Top="10" Width="254">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="ID"/>
+                    <DataGridTextColumn Binding="{Binding Tytul}" Header="Tytuł"/>
+                    <DataGridTextColumn Binding="{Binding Kod}" Header="Kod"/>
+                    <DataGridTextColumn Binding="{Binding Czytelnik}" Header="Czytelnik"/>
+                    <DataGridTextColumn Binding="{Binding Pracownik}" Header="Pracownik"/>
+                    <DataGridTextColumn Binding="{Binding Okres_wypozyczenia}" Header="Okres wypożyczenia"/>
+                    <DataGridTextColumn Binding="{Binding Kara_pieniezna}" Header="Kara pienieżna"/>
+                </DataGrid.Columns>
+            </DataGrid>
             <Button x:Name="B_Dodaj" Content="Dodaj" Canvas.Left="10" Canvas.Top="130" Width="75" Click="B_Dodaj_Click"/>
-            <Button x:Name="B_Usun" Content="Usuń" Canvas.Left="106" Canvas.Top="130" Width="75"/>
+            <Button x:Name="B_Usun" Content="Usuń" Canvas.Left="106" Canvas.Top="130" Width="75" Click="B_Usun_Click"/>
         </Canvas>
 
     </Grid>
