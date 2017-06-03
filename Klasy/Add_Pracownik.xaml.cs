@@ -20,7 +20,6 @@ namespace System_biblioteczny
     public partial class Add_Pracownik : Window
     {
         Spis_pracownikow pracownicy;
-        DBHandler handler;
         public Add_Pracownik(Spis_pracownikow pracownik)
         {
             InitializeComponent();
@@ -29,7 +28,7 @@ namespace System_biblioteczny
 
         private void b_Zapisz_Click(object sender, RoutedEventArgs e)
         {
-            handler = new DBHandler();
+            DBHandler handler = new DBHandler();
             Pracownik pracownik = new Pracownik(tbImie.Text, tbNazwisko.Text, tbPESEL.Text, tbTelefon.Text);
             handler.Add_Pracownik(pracownik);
             pracownicy.DataGrid_Fill();

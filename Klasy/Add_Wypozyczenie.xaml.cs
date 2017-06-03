@@ -30,6 +30,7 @@ namespace System_biblioteczny
             parentWindow = wypozyczenia;
             Fill_cb_Dni();
             Fill_cb_Pracownik();
+            Fill_cb_Czytelnik();
             Fill_cb_ISBN();
         }
 
@@ -43,14 +44,14 @@ namespace System_biblioteczny
             cb_dni.ItemsSource = dni;
             
         }
-        public void Fill_cb_Pracownik()
+        public void Fill_cb_Czytelnik()
         {
             PESELczytelnika = new List<string>();
             DBHandler handler = new DBHandler();
             PESELczytelnika = handler.cb_Czytelnik();
             cb_czytelnik.ItemsSource = PESELczytelnika;
         }
-        public void Fill_cb_Czytelnik()
+        public void Fill_cb_Pracownik()
         {
             PESELpracownika = new List<string>();
             DBHandler handler = new DBHandler();
@@ -75,6 +76,8 @@ namespace System_biblioteczny
             wypozyczenie.PESELPracownik = cb_pracownik.SelectedValue.ToString();
             handler.Add_Wypozyczenie(wypozyczenie);
             parentWindow.Fill_Grid();
+            parentWindow.SredniOkres();
+            parentWindow.ilosc_wypozyczen();
         }
     }
 }

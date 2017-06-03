@@ -227,14 +227,15 @@ namespace System_biblioteczny
             }
             return Wydawcy;
         }
-        public void Delete_Ksiazka(int index)
+        public void Delete_Ksiazka(int index,int ilosc)
         {
             SqlCommand command = connection.CreateCommand();
             command.Connection.Open();
-            command.CommandType = CommandType.Text;
-            command.Parameters.AddWithValue("@Id", index);
-            command.CommandText = "DELETE FROM Ksiazki WHERE Id = @Id";
-            command.ExecuteNonQuery();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "Delete_Ksiazka";
+            command.Parameters.AddWithValue("@index", index);
+            command.Parameters.AddWithValue("@ilosc_ksiazek", ilosc);
+           command.ExecuteNonQuery();
             command.Connection.Close();
         }
         public void Delete_Wypozyczenie(int index)
@@ -271,6 +272,24 @@ namespace System_biblioteczny
             adapter.Fill(table);
             command.Connection.Close();
             return table;
+        }
+        public List<int> cb_sztuki(int index)
+        {
+            List<int> Liczba_sztuk = new List<int>();
+            DataTable ksiazki = new DataTable("Ilosc");
+            SqlCommand command = connection.CreateCommand();
+            command.Connection.Open();
+            command.CommandType = CommandType.Text;
+            command.Parameters.Add("@index", SqlDbType.Int).Value = index;
+            command.CommandText = "SELECT Ilosc FROM ViewKsiazki WHERE Id = @index";
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(ksiazki);
+            command.Connection.Close();
+            foreach (DataRow item in ksiazki.Rows)
+            {
+                Liczba_sztuk.Add((int)item["Ilosc"]);
+            }
+            return Liczba_sztuk;
         }
     }
 }

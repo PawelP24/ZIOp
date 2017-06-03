@@ -25,6 +25,8 @@ namespace System_biblioteczny
         {
             InitializeComponent();
             Fill_Grid();
+            SredniOkres();
+            ilosc_wypozyczen();
         }
         public void Fill_Grid()
         {
@@ -44,6 +46,32 @@ namespace System_biblioteczny
             DataRowView row = (DataRowView)DG_Wypozyczenia.SelectedItem;
             handler.Delete_Wypozyczenie(Convert.ToInt32(row.Row[0]));
             Fill_Grid();
+        }
+        public void SredniOkres()
+        {
+            string sredni_okres;
+            int counter = 0;
+            int liczba_dni = 0;
+            foreach(DataRow item in table.Rows)
+            {
+                ++counter;
+                liczba_dni = liczba_dni + Convert.ToInt32(item["Okres_wypozyczenia"]);
+            }
+            if (counter > 0)
+            {
+                sredni_okres = Convert.ToString(liczba_dni / counter);
+                tb_czas.Text = sredni_okres;
+            }
+          
+        }
+        public void ilosc_wypozyczen()
+        {
+            int counter = 0;
+            foreach (DataRow item in table.Rows)
+            {
+                ++counter;
+            }
+            tb_ilosc.Text = Convert.ToString(counter);
         }
         
     }

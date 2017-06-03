@@ -41,10 +41,20 @@ namespace System_biblioteczny
 
         private void B_Usun_Click(object sender, RoutedEventArgs e)
         {
-            DBHandler handler = new DBHandler();
+            Delete_Ksiazka ksiazka = new Delete_Ksiazka(this);
+            ksiazka.ShowDialog();
+        }
+        public int index()
+        {
+            int indeks;
             DataRowView row = (DataRowView)DG_Ksiazki.SelectedItem;
-            handler.Delete_Pracownik(Convert.ToInt32(row.Row[0]));
-            FillGrid();
+            indeks = (int)row["ID"];
+            return indeks;
+        }
+
+        private void DG_Ksiazki_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            B_Usun.IsEnabled = true;
         }
     }
 }
