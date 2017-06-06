@@ -5,22 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:System_biblioteczny"
         mc:Ignorable="d"
-        Title="Spis książek" Height="241.486" Width="300" ResizeMode="NoResize">
+        Title="Spis książek" Height="254.196" Width="578.12" ResizeMode="NoResize">
     <Grid>
-        <Canvas x:Name="DG_Ksiazki_Canvas" HorizontalAlignment="Left" Height="170" Margin="10,10,0,0" VerticalAlignment="Top" Width="274">
-            <DataGrid Height="170" Width="274">
+        <Canvas x:Name="DG_Ksiazki_Canvas" HorizontalAlignment="Left" Height="170" Margin="10,10,0,0" VerticalAlignment="Top" Width="552">
+            <DataGrid x:Name="DG_Ksiazki" Height="170" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" Width="547.2" HorizontalScrollBarVisibility="Visible" SelectionChanged="DG_Ksiazki_SelectionChanged">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id"/>
-                    <DataGridTextColumn Header="Kod ISBN"/>
-                    <DataGridTextColumn Header="Tytuł"/>
-                    <DataGridTextColumn Header="Autor"/>
-                    <DataGridTextColumn Header="Nazwa wydawnictwa"/>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="ID"/>
+                    <DataGridTextColumn Binding="{Binding Tytul}" Header="Tytuł"/>
+                    <DataGridTextColumn Binding="{Binding Autor}" Header="Autor"/>
+                    <DataGridTextColumn Binding="{Binding Kod}" Header="Kod ISBN"/>
+                    <DataGridTextColumn Binding="{Binding Nazwa}" Header="Nazwa wydawnictwa"/>
+                    <DataGridTextColumn Binding="{Binding Data_wydania}" Header="Data wydania"/>
+                    <DataGridTextColumn Binding="{Binding Cena}" Header="Cena(zł)"/>
+                    <DataGridTextColumn Binding="{Binding Ilosc}" Header="Ilość sztuk"/>
+                    <DataGridTextColumn Binding="{Binding dostepnosc}" Header="Dostępność"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Canvas>
-        <Canvas HorizontalAlignment="Left" Height="23" Margin="10,185,0,0" VerticalAlignment="Top" Width="274">
-            <Button x:Name="B_dodaj" Content="Dodaj książkę" Width="85"/>
-            <Button x:Name="B_Usun" Content="Usuń książkę" Canvas.Left="90" Width="75"/>
+        <Canvas HorizontalAlignment="Left" Height="30" Margin="10,185,0,0" VerticalAlignment="Top" Width="274">
+            <Button x:Name="B_dodaj" Content="Dodaj książkę" Width="85" Click="B_dodaj_Click"/>
+            <Button x:Name="B_Usun" Content="Usuń książkę" Canvas.Left="90" Width="75" Click="B_Usun_Click" IsEnabled="False"/>
         </Canvas>
 
     </Grid>

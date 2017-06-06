@@ -1,0 +1,32 @@
+﻿<Window x:Class="System_biblioteczny.Rejestr_wypozyczen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:System_biblioteczny"
+        mc:Ignorable="d"
+        Title="Rejestr wypożyczeń" Height="322.435" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <Canvas x:Name="Canvas_Wypozyczenia" HorizontalAlignment="Left" Height="273" Margin="10,10,0,0" VerticalAlignment="Top" Width="274">
+            <DataGrid x:Name="DG_Wypozyczenia" Height="99" Canvas.Left="10" Canvas.Top="10" Width="254" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="ID"/>
+                    <DataGridTextColumn Binding="{Binding Tytul}" Header="Tytuł"/>
+                    <DataGridTextColumn Binding="{Binding Kod}" Header="Kod"/>
+                    <DataGridTextColumn Binding="{Binding Czytelnik}" Header="Czytelnik"/>
+                    <DataGridTextColumn Binding="{Binding Pracownik}" Header="Pracownik"/>
+                    <DataGridTextColumn Binding="{Binding Okres_wypozyczenia}" Header="Okres wypożyczenia"/>
+                    <DataGridTextColumn Binding="{Binding Kara_pieniezna}" Header="Kara pienieżna"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="B_Dodaj" Content="Dodaj" Canvas.Left="10" Canvas.Top="244" Width="75" Click="B_Dodaj_Click" RenderTransformOrigin="0.501,0.5"/>
+            <Button x:Name="B_Usun" Content="Usuń" Canvas.Left="99" Canvas.Top="244" Width="75" Click="B_Usun_Click"/>
+            <Label Content="Średni okres wypożyczeń" Canvas.Left="10" Canvas.Top="114" Padding="0,5"/>
+            <TextBox x:Name="tb_czas" Height="23" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="139" Width="46"/>
+            <Label Content="dni" Canvas.Left="61" Canvas.Top="146" Padding="0"/>
+            <Label Content="Ilość wypożyczonych książek" Canvas.Left="10" Canvas.Top="173" Padding="0"/>
+            <TextBox x:Name="tb_ilosc" Height="23" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="194" Width="55"/>
+        </Canvas>
+
+    </Grid>
+</Window>

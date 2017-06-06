@@ -16,37 +16,35 @@ using System.Windows.Shapes;
 namespace System_biblioteczny
 {
     /// <summary>
-    /// Interaction logic for Rejestr_wydawcow.xaml
+    /// Interaction logic for Spis_czytelnikow.xaml
     /// </summary>
-    public partial class Rejestr_wydawcow : Window
+    public partial class Spis_czytelnikow : Window
     {
         DataTable table;
-
-        public Rejestr_wydawcow()
+        public Spis_czytelnikow()
         {
             InitializeComponent();
-            FillGrid_Wydawcy();
+            Fill_Grid();
         }
-
-
-        public void FillGrid_Wydawcy()
+        public void Fill_Grid()
         {
             DBHandler handler = new DBHandler();
-            table = handler.FillGrid_Wydawcy();
-            DG_Wydawcy.ItemsSource = table.DefaultView;
+            table = handler.FillGrid_Czytelnicy();
+            DG_Czytelnicy.ItemsSource = table.DefaultView;
         }
 
-        private void B_Usun_Click(object sender, RoutedEventArgs e)
+        private void B_Delete_Click(object sender, RoutedEventArgs e)
         {
             DBHandler handler = new DBHandler();
-            handler.Delete_Wydawnictwo(DG_Wydawcy.SelectedIndex);
-            FillGrid_Wydawcy();
+            DataRowView row = (DataRowView)DG_Czytelnicy.SelectedItem;
+            handler.Delete_Czytelnik(Convert.ToInt32(row.Row[0]));
+            Fill_Grid();
         }
 
         private void B_Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            Add_Wydawca wydawca = new Add_Wydawca(this);
-            wydawca.ShowDialog();
+            Add_Czytelnik czytelnik = new Add_Czytelnik(this);
+            czytelnik.ShowDialog();
         }
     }
 }

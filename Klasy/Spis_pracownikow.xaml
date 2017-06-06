@@ -5,22 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:System_biblioteczny"
         mc:Ignorable="d"
-        Title="Spis pracowników" Height="209.867" Width="256.267" ResizeMode="NoResize">
+        Title="Spis pracowników" Height="217.334" Width="256.267" ResizeMode="NoResize">
     <Grid Margin="0,0,-0.4,0.4">
-        <Canvas x:Name="DG_Pracownicy_Canvas" HorizontalAlignment="Left" Height="141" Margin="10,10,0,0" VerticalAlignment="Top" Width="230.4">
-            <DataGrid x:Name="DG_Pracownicy" FontSize="9">
+        <Canvas x:Name="DG_Pracownicy_Canvas" HorizontalAlignment="Left" Height="141" Margin="10,10,0,0" VerticalAlignment="Top" Width="230">
+            <DataGrid x:Name="DG_Pracownicy" FontSize="9" AutoGenerateColumns="False" SelectionChanged="DG_Pracownicy_SelectionChanged" CanUserResizeRows="False" CanUserDeleteRows="False" CanUserAddRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id"/>
-                    <DataGridTextColumn Header="Imię"/>
-                    <DataGridTextColumn Header="Nazwisko"/>
-                    <DataGridTextColumn Header="PESEL"/>
-                    <DataGridTextColumn Header="Nr. telefonu"/>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="ID" ></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Imie}" Header="Imię" ></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Nazwisko}" Header="Nazwisko" ></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding PESEL}" Header="PESEL" ></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Nr_telefonu}" Header="Nr telefonu" ></DataGridTextColumn>
                 </DataGrid.Columns>
+            
             </DataGrid>
         </Canvas>
-        <Canvas HorizontalAlignment="Left" Height="19" Margin="10,156,0,0" VerticalAlignment="Top" Width="157">
+        <Canvas HorizontalAlignment="Left" Height="21" Margin="10,156,0,0" VerticalAlignment="Top" Width="157">
             <Button x:Name="B_dodaj" Content="Dodaj pracownika" Width="75" FontSize="8" Height="19" Click="B_dodaj_Click"/>
-            <Button x:Name="B_Usun" Content="Usuń pracownika" Canvas.Left="80" Width="75" FontSize="8" Height="19"/>
+            <Button x:Name="B_Usun" Content="Usuń pracownika" Canvas.Left="80" Width="75" FontSize="8" Height="19" Click="B_Usun_Click" IsEnabled="False"/>
         </Canvas>
 
     </Grid>
