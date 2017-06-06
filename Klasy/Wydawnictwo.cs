@@ -8,13 +8,15 @@ namespace System_biblioteczny
 {
     public class Wydawnictwo
     {
+
+        Wypozyczenie wypozyczenie;
         public string nazwa { get; set; }
         public string adres { get; set; }
         public int ilosc_ksiazek { get; set; }
 
         public Wydawnictwo()
         {
-           
+            wypozyczenie = new Wypozyczenie();
             
         }
     }
